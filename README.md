@@ -21,9 +21,12 @@ ReadMe
 설치 방법
 --------
 * 먼저 프로젝트를 가져온다.
+
     git clone git@github.com:acidsound/pcc.git
+
 * 혹은 download 후 압축 해제
 * 완료후 local에 모듈 설치
+
     npm insatall express
     npm install socket.io
     npm install mongolian
