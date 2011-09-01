@@ -3,5 +3,7 @@
     "database" : {
         "type" : "mongodb",
         "connectionURL" : "mongo://localhost:28017/pcc"
-    }
+    },
+    "sessionKey" : "secret4U",
+    "port" : "3000"
 }

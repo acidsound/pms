@@ -4,10 +4,11 @@
 
 var express = require('express');
 var app = module.exports = express.createServer();
+var config = require('./config').params;
 
 // Database
 var Mongolian = require("mongolian");
-var db = new Mongolian("mongo://127.0.0.1:28017/pcc");
+var db = new Mongolian(config.database.connectionURL);
 var collection = db.collection("sns");
 
 // Configuration
@@ -16,7 +17,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
-  app.use(express.session({ secret: 'secret4u' }));
+  app.use(express.session({ secret: config.sessionKey }));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 
@@ -111,5 +112,5 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-app.listen(3000);
+app.listen(config.port);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
