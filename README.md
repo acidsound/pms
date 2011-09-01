@@ -40,6 +40,10 @@ config.sample.json 을 rename 하거나 다른 이름으로 복사하기를 하�
 
 connectionURL 부분을 수정 Database 설정
 
+sessionKey에 session용 암호화 키를 넣고
+
+port에 실제 서비스할 포트명을 넣는다.
+
 실행
 ---
 node server.js
