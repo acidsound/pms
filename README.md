@@ -28,7 +28,7 @@ ReadMe
 
 완료후 local에 모듈 설치
 
-    npm insatall express
+    npm install express
     npm install socket.io
     npm install mongolian
     npm install jsdom
