@@ -34,6 +34,12 @@ ReadMe
     npm install jsdom
     npm install jquery
 
+config.sample.json 을 rename 하거나 다른 이름으로 복사하기를 하여 config.json 을 만든다.
+
+    cp config.sample.json config.json
+
+connectionURL 부분을 수정 Database 설정
+
 실행
 ---
 node server.js
