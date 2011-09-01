@@ -1,0 +1,7 @@
+{
+    "application Name" : "pcc",
+    "database" : {
+        "type" : "mongodb",
+        "connectionURL" : "mongo://localhost:28017/pcc"
+    }
+}
