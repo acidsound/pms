@@ -9,7 +9,7 @@ var config = require('./config').params;
 // Database
 var Mongolian = require("mongolian");
 var db = new Mongolian(config.database.connectionURL);
-var collection = db.collection("sns");
+var collection = db.collection("pcc");
 
 // Configuration
 app.configure(function(){
@@ -32,7 +32,11 @@ app.configure(function(){
         var window = require("jsdom").jsdom(str).createWindow();
         var $ = require("jquery").create(window);
         if(options.domParse) options.domParse.forEach(function(val) {
-          $(val[0]).html(val[1]);
+          if(typeof(val[1])=='function') {
+            val[1]($(val[0]));
+          } else {
+            $(val[0]).html(val[1]);
+          }
         });
 	      return window.document.innerHTML;
       };
@@ -74,26 +78,29 @@ getAllParams = function(userID, callback) {
 app.get('/', function(req, res){
   res.render("index", {
     domParse : [
-      ["title", "NoTitle"],
-      ["p#first", "first paragraph"],
-      ["span#one", "span one"],
-      ["div>ul>li>span", "mushroom"]
+      ["title", "주차관리센터"],
+      ["#flash p", req.flash.info ? req.session.flash.info[0]:""],
+      ["#loginForm", function($) {
+        if(req.session.userid) $.hide();
+      }],
+      ["#greetingMessage", req.session.userid ?
+        req.session.userid + "님 어서오세요" : "일단 로그인부터 하시죠?" ]
     ]
   });
 });
 
-app.get('/profile/:userID', function(req, res){
-  var parseArray = [];
-  getAllParams(req.params.userID, function(params) {
-    for(i in params) {
-      parseArray.unshift(["#"+i,
-        i=="userID" ? params[i] : "<li>"+params[i]+"</li>"
-      ]);
-    }
-    res.render("profile", {
-      domParse: parseArray
-    });
-  });
+app.post('/login/:userid', function(req, res) {
+  if(req.params.userid) {
+    req.session.userid = req.params.userid;
+    req.flash('info', '%s logged in', req.params.userid);
+  } else {
+    req.flash('info', 'id는?');
+  }
+  res.redirect('back');
+});
+
+app.post('/logout', function(req, res){
+  req.session.destory();
 });
 
 // socket.io messages
