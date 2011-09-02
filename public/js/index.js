@@ -10,4 +10,7 @@ $().ready(function(){
   $("input#login").click(function() {
     $.post("/login/"+$("input#userid").val())
   });
+  $("input#logout").click(function() {
+    $.post("/logout");
+  });
 });

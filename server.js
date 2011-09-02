@@ -99,7 +99,8 @@ app.post('/login/:userid', function(req, res) {
 });
 
 app.post('/logout', function(req, res){
-  req.session.destory();
+  req.session.destroy();
+  res.redirects('back');
 });
 
 // socket.io messages
