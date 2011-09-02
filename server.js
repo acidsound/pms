@@ -78,9 +78,10 @@ getAllParams = function(userID, callback) {
 app.get('/', function(req, res){
   res.render("index", {
     domParse : [
-      ["title", "주차관리센터"],
+      ["title", "Index"],
       ["#flash p", req.flash.info ? req.session.flash.info[0]:""],
-      ["#loginForm", function($) { if(req.session.userid) $.hide(); }],
+      ["#loginContainer", function($) { if(req.session.userid) $.remove() }],
+      ["#logoutContainer", function($) { if(!req.session.userid) $.remove() }],
       ["#greetingMessage", req.session.userid ?
         req.session.userid + "님 어서오세요" : "일단 로그인부터 하시죠?" ]
     ]
