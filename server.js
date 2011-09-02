@@ -90,6 +90,7 @@ app.get('/', function(req, res){
 
 app.post('/login/:userid', function(req, res) {
   if(req.params.userid) {
+    console.log('%s has login',req.params.userid);
     req.session.userid = req.params.userid;
     req.flash('info', '%s logged in', req.params.userid);
   } else {
@@ -99,8 +100,9 @@ app.post('/login/:userid', function(req, res) {
 });
 
 app.post('/logout', function(req, res){
+  console.log('%s has logout',req.session.userid);
   req.session.destroy();
-  res.redirects('back');
+  res.redirect('back');
 });
 
 // socket.io messages
