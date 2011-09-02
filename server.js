@@ -80,9 +80,7 @@ app.get('/', function(req, res){
     domParse : [
       ["title", "주차관리센터"],
       ["#flash p", req.flash.info ? req.session.flash.info[0]:""],
-      ["#loginForm", function($) {
-        if(req.session.userid) $.hide();
-      }],
+      ["#loginForm", function($) { if(req.session.userid) $.hide(); }],
       ["#greetingMessage", req.session.userid ?
         req.session.userid + "님 어서오세요" : "일단 로그인부터 하시죠?" ]
     ]
