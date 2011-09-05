@@ -5,5 +5,6 @@
         "connectionURL" : "mongo://127.0.0.1:28017/pcc"
     },
     "sessionKey" : "secret4U",
+    "tcpPort" : "1337",
     "port" : "3000"
 }

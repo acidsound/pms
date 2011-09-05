@@ -5,6 +5,7 @@
 var express = require('express');
 var app = module.exports = express.createServer();
 var config = require('./config').params;
+var net = require('net');
 
 // Database
 var Mongolian = require("mongolian");
@@ -132,7 +133,23 @@ io.sockets.on('connection', function (socket) {
       socket.emit('registerFan', msg);
     });
   });
+  socket.on('outtaCall', function(msg) {
+    console.log('otta.%s', msg);
+  });
 });
+
+
 
 app.listen(config.port);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+
+// TCP socket server
+var server = net.createServer(function (socket) {
+  socket.on('data', function(data) {
+    console.log("tcp socket incoming");
+    socket.write(data);
+    io.sockets.emit('outtaCall', data);
+  })
+});
+
+server.listen(config.tcpPort, "127.0.0.1");
