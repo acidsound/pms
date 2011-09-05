@@ -85,7 +85,9 @@ a:hover { color: #036; }
    ||                                              ||
     \\ ========================================== //
 */
-
+/* Grid Framework */
+.row { display:table; width:100%; margin:0 auto }
+.cell { display:table-cell; vertical-align:top;}
 
 
 

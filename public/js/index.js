@@ -7,10 +7,12 @@
  */
 $().ready(function(){
   // create socket
-  $("input#login").click(function() {
-    $.post("/login/"+$("input#userid").val())
-  });
-  $("input#logout").click(function() {
-    $.post("/logout");
-  });
+//  $("input#login").click(function() {
+//    $.post("/login/"+$("input#userid").val(), function() {
+//      alert("posted");
+//    })
+//  });
+//  $("input#logout").click(function() {
+//    $.post("/logout");
+//  });
 });

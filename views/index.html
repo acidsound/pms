@@ -68,12 +68,16 @@
         </p>
     </div>
     <div id="loginContainer">
-        <label>User ID</label>
-        <input type="text" id="userid" value=""/>
-        <input type="submit" id="login" value="login"/>
+        <form action="login" method="POST">
+            <label>User ID</label>
+            <input type="text" id="userid" name="userid" value=""/>
+            <input type="submit" id="login" value="login"/>
+        </form>
     </div>
     <div id="logoutContainer">
-        <input type="submit" id="logout" value="logout"/>
+        <form action="logout" method="POST">
+            <input type="submit" id="logout" value="logout"/>
+        </form>
     </div>
     <footer>
         PCC Parking Control Center version 0.1

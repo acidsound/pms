@@ -76,10 +76,11 @@ getAllParams = function(userID, callback) {
 
 // url routes
 app.get('/', function(req, res){
+  var flash = req.flash('info'); // queue flash buffer
   res.render("index", {
     domParse : [
       ["title", "Index"],
-      ["#flash p", req.flash.info ? req.session.flash.info[0]:""],
+      ["#flash p", flash ? flash[0]:""],
       ["#loginContainer", function($) { if(req.session.userid) $.remove() }],
       ["#logoutContainer", function($) { if(!req.session.userid) $.remove() }],
       ["#greetingMessage", req.session.userid ?
@@ -88,11 +89,11 @@ app.get('/', function(req, res){
   });
 });
 
-app.post('/login/:userid', function(req, res) {
-  if(req.params.userid) {
-    console.log('%s has login',req.params.userid);
-    req.session.userid = req.params.userid;
-    req.flash('info', '%s logged in', req.params.userid);
+app.post('/login', function(req, res) {
+  if(req.body.userid) {
+    console.log('%s has login',req.body.userid);
+    req.session.userid = req.body.userid;
+    req.flash('info', '%s logged in', req.body.userid);
   } else {
     req.flash('info', 'id는?');
   }
@@ -103,6 +104,18 @@ app.post('/logout', function(req, res){
   console.log('%s has logout',req.session.userid);
   req.session.destroy();
   res.redirect('back');
+});
+
+app.error(function(err, req, res, next){
+    if (err instanceof NotFound) {
+        res.render('404');
+    } else {
+        next(err);
+    }
+});
+
+app.error(function(err, req, res, next){
+  res.render("404");
 });
 
 // socket.io messages
