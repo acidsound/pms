@@ -139,7 +139,7 @@ var server = net.createServer(function (tcpsocket) {
 
 //    io.sockets.emit('fromTCPPacket', data);
     for (socket in io.sockets.sockets) {
-      // socket id 를 보고 필요한 client 에게만 packet 을 전송
+      // socket id 를 보고 필요한 client 에게만 packet 을 전송하도록 변경
       var decodedData=[];
       for(var i=0;i<data.length;i++) decodedData[i]=data[i];
       io.sockets.sockets[socket].emit('fromTCPPacket',
