@@ -7,12 +7,8 @@
  */
 $().ready(function(){
   // create socket
-//  $("input#login").click(function() {
-//    $.post("/login/"+$("input#userid").val(), function() {
-//      alert("posted");
-//    })
-//  });
-//  $("input#logout").click(function() {
-//    $.post("/logout");
-//  });
+  var socket = io.connect('/');
+  socket.on('fromTCPPacket', function (data) {
+    console.log(data);
+  });
 });

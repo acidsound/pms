@@ -126,30 +126,28 @@ io.sockets.on('connection', function (socket) {
   socket.on('disconnect', function() {
     socket.emit(socket.id + " disconnected");
   });
-  socket.on('enterCar', function(msg) {
-    console.log("%s added %s in list", msg.userID, msg.fanID);
-    registerFan(msg, socket, function() {
-      console.log("call callback");
-      socket.emit('registerFan', msg);
-    });
-  });
-  socket.on('outtaCall', function(msg) {
-    console.log('otta.%s', msg);
-  });
 });
-
-
 
 app.listen(config.port);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 
 // TCP socket server
-var server = net.createServer(function (socket) {
-  socket.on('data', function(data) {
+var server = net.createServer(function (tcpsocket) {
+  tcpsocket.on('data', function(data) {
     console.log("tcp socket incoming");
-    socket.write(data);
-    io.sockets.emit('outtaCall', data);
+//    tcpsocket.write(data);
+
+//    io.sockets.emit('fromTCPPacket', data);
+    for (socket in io.sockets.sockets) {
+      // socket id 를 보고 필요한 client 에게만 packet 을 전송
+      var decodedData=[];
+      for(var i=0;i<data.length;i++) decodedData[i]=data[i];
+      io.sockets.sockets[socket].emit('fromTCPPacket',
+        decodedData.filter(function(e,i,a) { return e>26; })
+          .map(function(v) { return String.fromCharCode(v)})
+          .join('')
+      );
+    }
   })
 });
-
 server.listen(config.tcpPort, "127.0.0.1");
