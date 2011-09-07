@@ -121,12 +121,6 @@ app.error(function(err, req, res, next){
 
 // socket.io messages
 var io = require("socket.io").listen(app);
-io.sockets.on('connection', function (socket) {
-  console.log('connected '+ socket.id);
-  socket.on('disconnect', function() {
-    socket.emit(socket.id + " disconnected");
-  });
-});
 
 app.listen(config.port);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
@@ -143,11 +137,21 @@ var server = net.createServer(function (tcpsocket) {
       var decodedData=[];
       for(var i=0;i<data.length;i++) decodedData[i]=data[i];
       io.sockets.sockets[socket].emit('fromTCPPacket',
-        decodedData.filter(function(e,i,a) { return e>26; })
-          .map(function(v) { return String.fromCharCode(v)})
+        decodedData.map(function(v) { return String.fromCharCode(v)})
           .join('')
       );
     }
   })
 });
 server.listen(config.tcpPort, "127.0.0.1");
+
+io.sockets.on('connection', function (socket) {
+  console.log('connected '+ socket.id);
+  socket.on('disconnect', function() {
+    socket.emit(socket.id + " disconnected");
+  });
+  socket.on('toTCPPacket', function(msg) {
+    console.log("outgoing from browser:"+msg);
+
+  });
+});
