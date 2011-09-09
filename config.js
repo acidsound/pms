@@ -16,6 +16,4 @@ function init() {
   return obj;
 }
 
-/*git test 인니다 ㅋㅋㅋㅋㅋㅋ*/
-
 exports.params = init();
