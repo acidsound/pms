@@ -1,8 +1,7 @@
 ReadMe
 ======
 
-주차장 관리 프로젝트
-
+주차장 관제 시스템
 
 구조
 ----
@@ -22,7 +21,7 @@ ReadMe
 --------
 먼저 프로젝트를 가져온다.
 
-    git clone git@github.com:acidsound/pmc.git
+    git clone git@github.com:acidsound/pms.git
 
 혹은 download 후 압축 해제
 
