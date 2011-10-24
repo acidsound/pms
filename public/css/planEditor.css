@@ -1,0 +1,47 @@
+#log {
+    width: 100%;
+    height: 200px;
+}
+ul {
+    padding: 0;
+    margin: 0;
+    clear: both;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul>li.title {
+    width: 100px;
+}
+
+div#wholeBody > ul > li {
+    margin: 10px;
+}
+div#wholeBody > ul > li {
+    float: left;
+}
+
+div#wholeBody > ul > li > ul > li {
+    float: left;
+    width: 70px;
+}
+
+div#wholeBody > ul#plan > li > ul {
+    clear: both;
+    padding-bottom: 30px;
+}
+div#wholeBody > ul#plan > li > ul > li + li {
+    width: 230px;
+}
+
+div#wholeBody > ul#plan > li > ul > li + li + li {
+    width: 50px;
+}
+
+ul#plan > li > ul#planImageSubmit {
+    padding-top: 10px;
+}
+
+
