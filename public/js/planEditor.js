@@ -29,6 +29,6 @@ $().ready(function(){
 
   // Button Event Handelr
   $("input#RegisterComponentButton").click(function(){
-      
+     $("div#popupUploadIcon").fadeToggle(100);
   });
 });

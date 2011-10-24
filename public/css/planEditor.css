@@ -1,7 +1,12 @@
+html, body {
+    height: 100%;
+}
+
 #log {
     width: 100%;
     height: 200px;
 }
+
 ul {
     padding: 0;
     margin: 0;
@@ -44,4 +49,75 @@ ul#plan > li > ul#planImageSubmit {
     padding-top: 10px;
 }
 
+div#dimmed {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    background-color: rgba(244,244,244, 0.8);
+    z-index:1;
+    display: none;
+}
+
+div.popup {
+    position: absolute;
+    border: solid thin;
+    border-color: #eee;
+    background-color: rgba(248,255,200,0.5);
+    display: none;
+    padding: 10px;
+    z-index:2;
+}
+
+div.popup > ul > li > ul > li {
+    float: left;
+}
+
+div.popup > ul > li > ul {
+    padding-top: 5px;
+}
+
+div#popupUploadIcon {
+    top: 40px;
+    left: 480px;
+    width:300px;
+    height:75px;
+}
+
+div#popupUploadIcon > ul > li > ul {
+    padding: 10px;
+}
+
+div#popupUploadIcon > ul > li > ul > li+li {
+    padding-left: 10px;
+}
+
+div#popupUploadIcon > ul > li > ul#uploadBlock > li {
+    width:100%;
+    text-align: center;
+}
+
+div#popupUSD {
+    top: 200px;
+    left: 350px;
+    width:350px;
+    height:200px;
+}
+
+div#popupUSD > ul > li > ul > li {
+    width: 100px;
+}
+
+div#popupUSD > ul > li > ul > li + li {
+    width: 250px;
+}
+
+div#popupLNC {
+    top: 200px;
+    left: 350px;
+    width: 350px;
+    height: 150px;
+    disply: block;
+}
 

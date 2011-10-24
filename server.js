@@ -90,6 +90,22 @@ app.get('/', function(req, res){
   });
 });
 
+app.get('/settings', function(reg,res){
+  res.render("planEditor", {
+    domParse : [
+      ["title", "plan Editor"]
+    ]
+  });
+});
+
+app.get('/adminConf', function(reg,res){
+  res.render("adminConfiguration", {
+      domParse : [
+        ["title", "Admin Configuration"]
+      ]
+  });
+});
+
 app.post('/login', function(req, res) {
   if(req.body.userid) {
     console.log('%s has login',req.body.userid);
