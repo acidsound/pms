@@ -1,8 +1,8 @@
 #log {
     width: 100%;
-    height: 200px;
+    height: 100px;
 }
-ul {
+ul,li,img {
     padding: 0;
     margin: 0;
 }
@@ -10,3 +10,88 @@ ul {
 li {
     list-style-type: none;
 }
+
+.cols > li {
+    float: left;
+}
+
+ul.cols {
+    clear: both;
+}
+
+li.colsHead {
+    width: 55px;
+    border: solid 1px #8a8;
+}
+
+div#parkingStatus > ul > li > ul > li + li {
+    width: 35px;
+    text-align: right;
+    border: solid 1px #bab;
+}
+
+div#parkingStatus > ul > li > ul > li > ul > li + li {
+    width: 35px;
+    text-align: right;
+    border: solid 1px #eaa;
+}
+
+div#parkingStatus > ul > li > ul > li + li + li + li + li, div#parkingStatus > ul > li > ul > li > ul > li + li + li + li + li  {
+    width: 50px;
+    text-align: right;
+}
+
+div#parkingStatus > ul > li > ul > li > ul > li + li + li + li + li {
+    text-align: right;
+};
+
+li#parkingStatusHeader {
+    width: 120px;
+}
+
+
+div#parkingStatus > ul > li > ul > li > ul {
+    width: 220px;
+}
+
+div#parkingStatus > ul > li > ul {
+    clear: both;
+}
+
+div#parkingStatus > ul {
+    float: left;
+}
+
+div#parkingStatus > ul + ul + ul {
+    clear: left;
+}
+
+ul#parkinglog > li {
+    width: 1022px;
+}
+
+li#currentPlan {
+    position: relative;
+    top: -290px;
+    left: 10px;
+}
+ul#planImage {
+    height: 300px;
+}
+
+ul#planList {
+    height: 300px;
+    background-color: rgba(254, 254, 200, .7);
+}
+
+div#parkingStatus > ul {
+    border: solid 1px #aaf;
+}
+/* initial status of table */
+/*
+ul#statusHeader > li + li,
+ul#statusHeader > li + li + li,
+ul#statusHeader > li + li + li + li + li {
+    display: none;
+}
+*/

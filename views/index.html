@@ -70,28 +70,160 @@
             <input type="submit" id="logout" value="logout"/>
         </form>
     </div>
-    <div id="parkingLot">
-        <ul>
+    <div id="parkingStatus">
+        <ul id="planList">
             <li>
-                <label>차고1</label><input type="checkbox" name="cg001" id="cg001" value="cg001"/>
+                <ul class="cols">
+                    <li id="parkingStatusHeader">
+                        전체 주차 상황
+                    </li>
+                </ul>
+                <ul class="cols" id="statusHeader">
+                    <li class="colsHead">
+                        도면이름
+                    </li>
+                    <li>
+                        전체
+                    </li>
+                    <li>
+                        주차
+                    </li>
+                    <li>
+                        공차
+                    </li>
+                    <li>
+                        주차율
+                    </li>
+                </ul>
+                <ul id="plans">
+                    <li>
+                        <ul class="cols">
+                            <li class="colsHead">
+                                지하1층
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                52
+                            </li>
+                            <li>
+                                3
+                            </li>
+                            <li>
+                                5.5%
+                            </li>
+                        </ul>
+                        <ul class="cols">
+                            <li class="colsHead">
+                                지하2층
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                94.5%
+                            </li>
+                        </ul>
+                        <ul class="cols">
+                            <li class="colsHead">
+                                지하3층
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                94.5%
+                            </li>
+                        </ul>
+                        <ul class="cols">
+                            <li class="colsHead">
+                                지하4층
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                94.5%
+                            </li>
+                        </ul>
+                        <ul class="cols">
+                            <li class="colsHead">
+                                지하5층
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                55
+                            </li>
+                            <li>
+                                100.0%
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <ul class="cols">
+                            <li class="colsHead">
+                                합계
+                            </li>
+                            <li>
+                                275
+                            </li>
+                            <li>
+                                275
+                            </li>
+                            <li>
+                                275
+                            </li>
+                            <li>
+                                100.0%
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul id="planImage">
+            <li>
+                <img src="http://placehold.it/800x300"/>
+            </li>
+            <li id="currentPlan">
+                지하1층
+            </li>
+        </ul>
+        <ul id="parkinglog">
+            <li>
+                PCC Parking Control Center version 0.1
             </li>
             <li>
-                <label>차고2</label><input type="checkbox" name="cg002" id="cg002" value="cg002"/>
-            </li>
-            <li>
-                <label>차고3</label><input type="checkbox" name="cg003" id="cg003" value="cg003"/>
-            </li>
-            <li>
-                <label>차고4</label><input type="checkbox" name="cg004" id="cg004" value="cg004"/>
+                <textarea id="log"></textarea>
             </li>
         </ul>
     </div>
-    <div id="log">
-        <textarea id="log"></textarea>
-    </div>
-    <footer>
-        PCC Parking Control Center version 0.1
-    </footer>
 </div>
 </body>
 </html>

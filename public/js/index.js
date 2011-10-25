@@ -26,4 +26,9 @@ $().ready(function(){
     socket.emit("toTCPPacket", msg);
     addLog($("textarea#log"), "outgoing message :" + msg +"\r\n");
   });
+
+  // when click plans, change plan Images
+  $("ul#plans>li>ul>li").click(function() {
+      $("li#currentPlan").text($(this).text());
+  });
 });
