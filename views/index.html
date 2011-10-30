@@ -98,7 +98,7 @@
                 <ul id="plans">
                     <li>
                         <ul class="cols">
-                            <li class="colsHead">
+                            <li class="colsHead" id="plan01">
                                 지하1층
                             </li>
                             <li>
@@ -115,7 +115,7 @@
                             </li>
                         </ul>
                         <ul class="cols">
-                            <li class="colsHead">
+                            <li class="colsHead" id="plan02">
                                 지하2층
                             </li>
                             <li>
@@ -132,7 +132,7 @@
                             </li>
                         </ul>
                         <ul class="cols">
-                            <li class="colsHead">
+                            <li class="colsHead" id="plan03">
                                 지하3층
                             </li>
                             <li>
@@ -149,7 +149,7 @@
                             </li>
                         </ul>
                         <ul class="cols">
-                            <li class="colsHead">
+                            <li class="colsHead" id="plan04">
                                 지하4층
                             </li>
                             <li>
@@ -166,7 +166,7 @@
                             </li>
                         </ul>
                         <ul class="cols">
-                            <li class="colsHead">
+                            <li class="colsHead" id="plan05">
                                 지하5층
                             </li>
                             <li>
@@ -209,10 +209,14 @@
         </ul>
         <ul id="planImage">
             <li>
-                <img src="http://placehold.it/800x300"/>
-            </li>
-            <li id="currentPlan">
-                지하1층
+                <ul>
+                    <li>
+                        <img src="http://placehold.it/800x300"/>
+                    </li>
+                    <li id="currentPlan">
+                    지하1층
+                    </li>
+                </ul>
             </li>
         </ul>
         <ul id="parkinglog">
@@ -221,6 +225,25 @@
             </li>
             <li>
                 <textarea id="log"></textarea>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <ul>
+                    <li>
+                        자동차 설정
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ui>
+                    <li>
+                        블록표시등 ID
+                    </li>
+                    <li>
+                        <input type="text"/>
+                    </li>
+                </ui>
             </li>
         </ul>
     </div>

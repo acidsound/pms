@@ -49,11 +49,6 @@ li#parkingStatusHeader {
     width: 120px;
 }
 
-
-div#parkingStatus > ul > li > ul > li > ul {
-    width: 220px;
-}
-
 div#parkingStatus > ul > li > ul {
     clear: both;
 }
@@ -70,11 +65,6 @@ ul#parkinglog > li {
     width: 1022px;
 }
 
-li#currentPlan {
-    position: relative;
-    top: -290px;
-    left: 10px;
-}
 ul#planImage {
     height: 300px;
 }
@@ -87,6 +77,30 @@ ul#planList {
 div#parkingStatus > ul {
     border: solid 1px #aaf;
 }
+
+ul#planImage > li {
+    position: relative;
+}
+
+ul#planImage > li > ul > li#currentPlan {
+    position: absolute;
+    border: none 0;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 30px;
+    text-align: left;
+}
+
+ul#planImage > li > ul > li.planObject {
+    left: 0;
+    top: 0;
+    position: absolute;
+    border: none 0;
+    width: 32px;
+    height: 32px;
+}
+
 /* initial status of table */
 /*
 ul#statusHeader > li + li,
