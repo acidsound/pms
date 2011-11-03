@@ -2,7 +2,7 @@
     "application Name" : "pcc",
     "database" : {
         "type" : "mongodb",
-        "connectionURL" : "mongo://127.0.0.1:28017/pcc"
+        "connectionURL" : "127.0.0.1:27017/pcc"
     },
     "sessionKey" : "secret4U",
     "tcpPort" : "1337",

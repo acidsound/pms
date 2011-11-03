@@ -30,7 +30,7 @@ $().ready(function() {
     // test Data
     var plans = {
         "plan01" : {
-            imgSrc : "http://placehold.it/800x300/7D8C22",
+            imgSrc : "/images/planImages/floorB1.jpg",
             planObjects : [
                 {
                     "USDID" : "01",
@@ -41,8 +41,8 @@ $().ready(function() {
                     "detectCount" : 0,
                     "detectRange" : 10,
                     "calibration" : 10,
-                    "drawing-left" : 100,
-                    "drawing-top" : 100,
+                    "drawing-left" : 1793,
+                    "drawing-top" : 1450,
                     "VerticalYN" : "Y",
                     "currentStatus" : 1
                 },
@@ -100,12 +100,12 @@ $().ready(function() {
             ]
         },
         "plan02" : {
-            imgSrc : "http://placehold.it/800x300/B3BF67",
+            imgSrc : "/images/planImages/floorB2.jpg",
             planObjects : [
                 {
                     "USDID" : "01",
                     "LNCID" : "01",
-                    "planID" : "plan01",
+                    "planID" : "plan02",
                     "BDID" : "01",
                     "hangingHeight" : 100,
                     "detectCount" : 0,
@@ -119,7 +119,7 @@ $().ready(function() {
                 {
                     "USDID" : "02",
                     "LNCID" : "01",
-                    "planID" : "plan01",
+                    "planID" : "plan02",
                     "BDID" : "01",
                     "hangingHeight" : 100,
                     "detectCount" : 0,
@@ -133,7 +133,7 @@ $().ready(function() {
                 {
                     "USDID" : "03",
                     "LNCID" : "01",
-                    "planID" : "plan01",
+                    "planID" : "plan02",
                     "BDID" : "01",
                     "hangingHeight" : 100,
                     "detectCount" : 0,
@@ -147,7 +147,7 @@ $().ready(function() {
                 {
                     "USDID" : "04",
                     "LNCID" : "01",
-                    "planID" : "plan01",
+                    "planID" : "plan02",
                     "BDID" : "01",
                     "hangingHeight" : 100,
                     "detectCount" : 0,
@@ -161,7 +161,7 @@ $().ready(function() {
             ]
         },
         "plan03" : {
-            imgSrc : "http://placehold.it/800x300/F2E49B"
+            imgSrc : "/images/planImages/floorB3.jpg"
         },
         "plan04" : {
             imgSrc : "http://placehold.it/800x300/D9DFF4"
@@ -191,8 +191,7 @@ $().ready(function() {
         $("li#currentPlan").text($(this).text());
 
         // loadPlanImage
-        $("ul#planImage>li>ul>li>img").attr('src', plans[$(this).attr('id')].imgSrc
-            + '&text=' + $(this).attr('id'));
+        $("ul#planImage>li>ul>li>ul>li>img").attr('src', plans[$(this).attr('id')].imgSrc);
 
         // set global jQuery custom plugins
         jQuery.fn.getLastObject = function() {
@@ -205,32 +204,18 @@ $().ready(function() {
         };
 
         // delete old planObjects
-        var objectCount = $("ul#planImage>li>ul>li").length - 2;
+        var objectCount = $("ul#planImage>li>ul>li>ul>li").length - 1;
         while (objectCount > 0) {
-            $("ul#planImage>li>ul>li").getLastObject().remove();
+            $("ul#planImage>li>ul>li>ul>li").getLastObject().remove();
             objectCount--;
         }
 
         // set Initial Objects
         $(plans[$(this).attr('id')].planObjects).each(function() {
 
-            // add USD Object
-            if (this.USDID) {
-                $("li", $("ul#planImage>li>ul")
-                    .append('<li class="planObject">'
-                    + (this.VerticalYN == 'Y'
-                    ? '<img src="http://placehold.it/32x64/f00&text=USD"/>'
-                    : '<img src="http://placehold.it/64x32/f00&text=USD"/>')
-                    + '</li>'))
-                    .getLastObject()
-                    .attr("id", "USDID" + "__" + this.USDID)
-                    .setPosition(this["drawing-left"] + (this.VerticalYN == 'Y' ? 16 : 0)
-                    , this["drawing-top"] + (this.VerticalYN == 'Y' ? 0 : 16))
-                    .click(clickObject);
-            }
             // add BD Object
             if (!this.USDID && this.BDID) {
-                $("li", $("ul#planImage>li>ul")
+                $("li", $("ul#planImage>li>ul>li>ul")
                     .append('<li class="planObject">'
                     + '<img src="http://placehold.it/32x32/ff0&text=BD"/>'
                     + '</li>'))
@@ -239,9 +224,23 @@ $().ready(function() {
                     .setPosition(this["drawing-left"], this["drawing-top"])
                     .click(clickObject);
             }
+            // add USD Object
+            if (this.USDID) {
+                $("li", $("ul#planImage>li>ul>li>ul")
+                    .append('<li class="planObject">'
+                    + (this.VerticalYN == 'Y'
+                    ? '<img src="/images/planObjects/carOnV.png"/>'
+                    : '<img src="/images/planObjects/carOnH.png"/>')
+                    + '</li>'))
+                    .getLastObject()
+                    .attr("id", "USDID" + "__" + this.USDID)
+                    .setPosition(this["drawing-left"] + (this.VerticalYN == 'Y' ? 16 : 0)
+                    , this["drawing-top"] + (this.VerticalYN == 'Y' ? 0 : 16))
+                    .click(clickObject);
+            }
             // add signBoard Object
             if (this.signBoardID) {
-                $("li", $("ul#planImage>li>ul")
+                $("li", $("ul#planImage>li>ul>li>ul")
                     .append('<li class="planObject">'
                     + '<img src="http://placehold.it/64x64/0ff&text=signBoard"/>'
                     + '</li>'))

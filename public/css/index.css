@@ -78,7 +78,7 @@ div#parkingStatus > ul {
     border: solid 1px #aaf;
 }
 
-ul#planImage > li {
+ul#planImage > li > ul > li, ul#planImage > li {
     position: relative;
 }
 
@@ -92,13 +92,19 @@ ul#planImage > li > ul > li#currentPlan {
     text-align: left;
 }
 
-ul#planImage > li > ul > li.planObject {
+ul#planImage > li > ul > li > ul > li.planObject {
     left: 0;
     top: 0;
     position: absolute;
     border: none 0;
     width: 32px;
     height: 32px;
+}
+
+#planImagePlaceHolder {
+    overflow: scroll;
+    width: 800px;
+    height: 300px;
 }
 
 /* initial status of table */
